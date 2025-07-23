@@ -1,0 +1,5 @@
+package com.example.mediaqueries
+
+import io.flutter.embedding.android.FlutterActivity
+
+class MainActivity : FlutterActivity()
