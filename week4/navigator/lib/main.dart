@@ -10,7 +10,24 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Navigation',
-      // Start with FirstScreen
+      theme: ThemeData(
+        primaryColor: Color(0xFF8EACCD),
+        scaffoldBackgroundColor: Color(0xFFF6F4EB),
+        textTheme: TextTheme(
+          bodyMedium: TextStyle(color: Colors.black87),
+        ),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Color(0xFF91C8E4), // soft blue
+            foregroundColor: Colors.white,
+            padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+            textStyle: TextStyle(fontSize: 18),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+          ),
+        ),
+      ),
       home: FirstScreen(),
     );
   }
@@ -22,7 +39,7 @@ class FirstScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('First Screen'),
-        backgroundColor: const Color.fromARGB(255, 133, 73, 110),
+        backgroundColor: Color(0xFF749BC2), // aesthetic soft blue
       ),
       body: Center(
         child: Column(
@@ -35,21 +52,11 @@ class FirstScreen extends StatelessWidget {
             SizedBox(height: 30),
             ElevatedButton(
               onPressed: () {
-                // Navigate to the SecondScreen using Navigator.push
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => SecondScreen()),
                 );
               },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: const Color.fromARGB(255, 50, 70, 105), // Button background color
-                foregroundColor: const Color.fromARGB(255, 121, 25, 25), // Button text color
-                padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
-                textStyle: TextStyle(fontSize: 18),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10), // Rounded corners
-                ),
-              ),
               child: Text('Go to Second Screen'),
             ),
           ],
@@ -65,7 +72,7 @@ class SecondScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Second Screen'),
-        backgroundColor: Colors.green,
+        backgroundColor: Color(0xFF91C8E4), // softer accent
       ),
       body: Center(
         child: Column(
@@ -78,17 +85,11 @@ class SecondScreen extends StatelessWidget {
             SizedBox(height: 30),
             ElevatedButton(
               onPressed: () {
-                // Navigate back to the FirstScreen using Navigator.pop
                 Navigator.pop(context);
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.greenAccent, // Button background color
-                foregroundColor: Colors.white, // Button text color
-                padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
-                textStyle: TextStyle(fontSize: 18),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10), // Rounded corners
-                ),
+                backgroundColor: Color(0xFFAACBFA), // another pastel tone
+                foregroundColor: Colors.white,
               ),
               child: Text('Go Back to First Screen'),
             ),
